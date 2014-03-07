@@ -1,0 +1,13 @@
+#stock-removals {
+  #no_charge_payment {
+    #no_charge_note_field {
+      label {
+        display: block;
+      }
+
+      input[type=text] {
+        width: 100%;
+      }
+    }
+  }
+}

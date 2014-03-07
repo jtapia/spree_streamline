@@ -1,6 +1,6 @@
 module Spree
   module Admin
-    class StockRemovalsController < Spree::Admin::BaseController
+    class StockRemovalsController < Spree::Admin::ResourceController
       def new
         params[:q] ||= {}
         params[:q][:completed_at_not_null] ||= '1' if Spree::Config[:show_only_complete_orders_by_default]

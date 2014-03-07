@@ -1,2 +1,6 @@
 en:
   spree:
+    attributes:
+      spree/variant:
+        one: Variant
+        other: Variants
