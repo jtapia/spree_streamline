@@ -2,5 +2,5 @@
      original '99c890667b7e1803e5d04ce1048a475f3402db4a'
 -->
 <li>
-  <%= button_link_to Spree.t(:stock_removal), spree.admin_stock_removals_path, :icon => 'icon-plus', :id => 'admin_stock_removal' %>
+  <%= button_link_to Spree.t(:stock_removal), spree.new_admin_stock_removals_path, :icon => 'icon-plus', :id => 'admin_stock_removal' %>
 </li>
