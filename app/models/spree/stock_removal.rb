@@ -1,4 +1,4 @@
 module Spree
-  class StockRemoval < ActiveRecord::Base
+  class StockRemoval
   end
 end
