@@ -1,0 +1,6 @@
+<!-- insert_after ".checkbox" -->
+
+<div class="field">
+  <%= label_tag nil, Spree.t(:payment_method) %>
+  <%= f.select :payments_payment_method_id_eq, Spree::PaymentMethod.all.map{ |method| [method.name, method.id] }, {:include_blank => true}, :class => 'select2' %>
+</div>

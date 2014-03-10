@@ -1,6 +1,14 @@
 en:
   spree:
+    stock_removal: Stock Removal
+    stock_removals: Stock Removals
+    order_successfully_created: Order has been successfully created!
+    order_error: Order can't be created, please check all the fields.
     attributes:
       spree/variant:
         one: Variant
         other: Variants
+
+    errors:
+      missing_user: You need to select a valid user for the order
+      missing_items: You need to add variants for the order

@@ -1,3 +1,7 @@
+/*
+ *= require admin/spree_backend
+*/
+
 #stock-removals {
   #no_charge_payment {
     #no_charge_note_field {
@@ -10,4 +14,14 @@
       }
     }
   }
+
+  #stock_field {
+    input[type=text] {
+      width: 45px;
+    }
+  }
+}
+
+#admin_stock_removal {
+  margin-right: 5px;
 }
