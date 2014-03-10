@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 1.9.3'
   s.requirements << 'none'
 
+  s.add_dependency 'durable_decorator', '~> 0.2.0'
   s.add_dependency 'spree_api',         '~> 2.0.0'
   s.add_dependency 'spree_backend',     '~> 2.0.0'
   s.add_dependency 'spree_core',        '~> 2.0.0'
@@ -24,7 +25,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'capybara', '~> 2.0'
   s.add_development_dependency 'coffee-rails'
   s.add_development_dependency 'database_cleaner', '~> 1.0.1'
-  s.add_development_dependency 'factory_girl', '~> 4.2'
+  s.add_development_dependency 'factory_girl', '~> 3.6.2'
   s.add_development_dependency 'ffaker'
   s.add_development_dependency 'rspec-rails',  '~> 2.13'
   s.add_development_dependency 'sass-rails'

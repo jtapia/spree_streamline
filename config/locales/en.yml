@@ -1,5 +1,8 @@
 en:
   spree:
+    no_charge_payment: No Charge Payment
+    no_charge_note: No Charge Note
+    no_charge_code: No Charge Code
     stock_removal: Stock Removal
     stock_removals: Stock Removals
     order_successfully_created: Order has been successfully created!

@@ -44,24 +44,6 @@
       </div>
     </div>
 
-    <fieldset class="no-border-bottom" id="no_charge_payment">
-      <legend><%= Spree.t(:no_charge_payment) %></legend>
-
-      <div class="alpha seven columns">
-        <div class="field" id="no_charge_note_field">
-          <%= label_tag nil, Spree.t(:no_charge_note) %>
-          <%= text_field_tag :no_charge_note %>
-        </div>
-      </div>
-
-      <div class="alpha seven columns">
-        <div class="field" id="no_charge_code_field">
-        <%= label_tag nil, Spree.t(:no_charge_code) %>
-        <%= select_tag :no_charge_code, options_for_select(Spree::PaymentMethod::NoCharge::CODES), {:prompt => "--select Reason Code--", :class => 'required select2 fullwidth'} %>
-      </td>
-      </div>
-    </fieldset>
-
     <fieldset class="no-border-bottom" id="add-variant-to-transfer">
       <legend><%= Spree.t(:add_variant) %></legend>
 

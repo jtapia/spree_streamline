@@ -7,9 +7,9 @@ module Spree
 
       def create
         begin
+          assign_address
           create_shipment
           associate_user
-          assign_address
           order_next_state
           create_payment
           order_next_state
@@ -30,20 +30,17 @@ module Spree
       def load_order
         @order = Spree::Order.create
         @order.created_by = try_spree_current_user
-        @order.through_admin = true
-        @order.group_shipment = true
+        @order.stock_removal = true
         @order.save
       end
 
       def load_data
         load_order
-        @stock_location = Spree::StockLocation.find_by_id params[:transfer_source_location_id]
         @user = Spree::User.find_by_id params[:customer_search]
-        @note = params[:no_charge_note]
-        @code = params[:no_charge_code]
+        @stock_location = Spree::StockLocation.find_by_id params[:transfer_source_location_id]
         @variant = Spree::Variant.find_by_id params[:transfer_variant]
         @quantity = params[:transfer_variant_quantity]
-        @payment = Spree::PaymentMethod.find_by_name("No Charge")
+        @payment = Spree::PaymentMethod.available.first
       end
 
       def create_shipment
@@ -62,25 +59,23 @@ module Spree
       end
 
       def assign_address
-        @order.ship_address = @user.ship_addresses.first
-        @order.bill_address = @user.bill_addresses.first
+        @order.ship_address = @user.ship_address
+        @order.bill_address = @user.bill_address
         @order.save
       end
 
       def create_payment
         payment_data = {
           amount: @order.total.to_f,
-          payment_method_id: @payment.id,
-          no_charge_note: @note,
-          no_charge_code: @code
+          payment_method_id: @payment.id
         }
         payment = @order.payments.build(payment_data)
-        payment.save
+        payment.save!
       end
 
       def order_next_state
         case @order.state
-          when 'cart', 'address'
+          when 'cart', 'address', 'delivery'
             until @order.payment?
               @order.next
             end
