@@ -23,7 +23,7 @@
   {{/each}}
 </script>
 
-<%= form_tag admin_stock_removals_path, :method => :post do %>
+<%= form_tag admin_stock_removals_path, :method => :post, :id => 'admin_stock_removal' do %>
   <fieldset class="fourteen columns alpha", id="stock-removals">
     <legend align="center"><%= Spree.t(:stock_removals) %></legend>
 
