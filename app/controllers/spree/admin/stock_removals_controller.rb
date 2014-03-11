@@ -7,9 +7,9 @@ module Spree
 
       def create
         begin
+          associate_user
           assign_address
           create_shipment
-          associate_user
           order_next_state
           create_payment
           order_next_state
@@ -54,14 +54,14 @@ module Spree
       def associate_user
         @order.associate_user!(@user)
         @order.save!
-        @order.refresh_shipment_rates
-        @order.reload
       end
 
       def assign_address
         @order.ship_address = @user.ship_address
         @order.bill_address = @user.bill_address
+        @order.refresh_shipment_rates
         @order.save
+        @order.reload
       end
 
       def create_payment
