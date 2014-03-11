@@ -38,14 +38,17 @@ module Spree
         load_order
         @user = Spree::User.find_by_id params[:customer_search]
         @stock_location = Spree::StockLocation.find_by_id params[:transfer_source_location_id]
-        @variant = Spree::Variant.find_by_id params[:transfer_variant]
-        @quantity = params[:transfer_variant_quantity]
+        @variants = params[:variant]
+        @quantities = params[:quantity]
         @payment = Spree::PaymentMethod.available.first
       end
 
       def create_shipment
         shipment = @order.shipments.create stock_location_id: @stock_location.id
-        @order.contents.add(@variant, @quantity, nil, shipment)
+        @variants.each_with_index do |variant_id, i|
+          variant = Spree::Variant.find_by_id variant_id
+          @order.contents.add(variant, @quantities[i], nil, shipment)
+        end
         shipment.refresh_rates
         shipment.save!
         @order.save!
