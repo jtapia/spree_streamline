@@ -9,21 +9,23 @@
         display: block;
       }
 
-      input[type=text] {
+      input[type='text'] {
         width: 100%;
       }
     }
   }
 
-  #stock_field {
-    input[type=text] {
-      width: 45px;
+  #stock_movement_quantity_field {
+    input[type='text'] {
+      width: 57px;
     }
   }
-}
 
-#admin_stock_removal {
-  margin-right: 5px;
+  #no_charge_note_field {
+    input[type='text'] {
+      display: block;
+    }
+  }
 }
 
 #admin_stock_removal {
