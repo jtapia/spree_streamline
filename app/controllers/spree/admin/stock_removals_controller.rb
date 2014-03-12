@@ -13,8 +13,9 @@ module Spree
           order_next_state
           create_payment
           order_next_state
-          finalize!
+          finalize_order!
           order_next_state
+          finalize_shipment!
         rescue
           flash[:error] = Spree.t(:order_error)
           redirect_to :action => :new
@@ -93,9 +94,14 @@ module Spree
         end
       end
 
-      def finalize!
+      def finalize_order!
         @order.touch
         @order.update!
+        @order.reload
+      end
+
+      def finalize_shipment!
+        @order.shipment.ship!
         @order.reload
       end
 
