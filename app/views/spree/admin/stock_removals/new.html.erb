@@ -39,6 +39,7 @@
         <div class="field" id="email_field">
           <%= label_tag :email, Spree.t(:email) %>
           <%= hidden_field_tag :customer_search,  nil, :class => 'fullwidth title' %>
+          <%= hidden_field_tag :user_id,  nil %>
           <%= render :partial => "spree/admin/orders/customer_details/autocomplete", :formats => :js %>
         </div>
       </div>
