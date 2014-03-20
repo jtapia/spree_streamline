@@ -1,8 +1,6 @@
 module Spree
   Order.class_eval do
 
-    attr_accessor :stock_removal
-
     def deliver_order_confirmation_email
       unless stock_removal
         begin
