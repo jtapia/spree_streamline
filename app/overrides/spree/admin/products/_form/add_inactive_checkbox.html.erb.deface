@@ -1,0 +1,8 @@
+<!-- insert_bottom "[data-hook=admin_product_form_right]"
+original '94d9fcd0ef87eb4231f1f80e637f31e1b0928cdb' -->
+
+<%= f.field_container :inactive do %>
+  <%= f.check_box :inactive  %>
+  <%= f.label :inactive, Spree.t(:make_inactive) %>
+  <%= f.error_message_on :inactive %>
+<% end %>
